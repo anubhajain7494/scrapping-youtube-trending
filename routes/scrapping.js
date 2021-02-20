@@ -5,24 +5,19 @@ const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 var main_page_url = 'https://www.youtube.com/feed/trending';
 
-//Fetch all the related details of a particular video
 router.get('/edit/:id', async (req, res) => {
   const video = await Video.findById(req.params.id);
 
   fetchFromYouTube(video.video_url, (data) => {
     fetchAndSaveTrendingVideoContent(data, video.id, res);
-    //video = await Video.findById(req.params.id);
   });
-  //res.render('videos/edit', { video: video })
 })
 
-// Update the video details for a particular video
 router.put('/update/:id', async (req, res, next) => {
   req.video = await Video.findById(req.params.id)
   next()
 }, saveVideoAndRedirect('/'))
 
-// Retrieve Data from URL and Save in DB
 router.get('/saveTrendingVideos', async (req, res) => {
   fetchFromYouTube(main_page_url, (data) => {
     getTrendingVideoPageContent(data, res);
