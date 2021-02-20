@@ -60,7 +60,9 @@ npm install
 **Start the application**
 
 To start the application, run the below command in the terminal:
+
 node index.js
+
 If the server runs successfully, then it should print a message with the port number in the terminal window.
 
 
