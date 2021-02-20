@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Trending YouTube Videos</title>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="mb-3 mt-2 btn btn-secondary">Go to All Videos</a>
+    <h3 class="mb-lg-5">Edit Video - [<%= video.video_title %>]</h3>
+
+    <iframe class="video" width="320" height="180" src="<%= video.video_embed_url %>?autoplay=1&mute=1" allow='autoplay' frameborder="0" allowfullscreen></iframe>
+
+    <form class="form-horizontal" action="/videos/update/<%= video.id %>?_method=PUT" method="POST">
+      <%- include('_form_fields') %>
+    </form>
+  </div>
+</body>
+</html>

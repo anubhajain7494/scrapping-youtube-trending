@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Trending YouTube Videos</title>
+</head>
+<body>
+  <div class="container">
+    <h2 class="mb-lg-5">Trending YouTube Videos</h2>
+    
+    <% videos.forEach(video => { %>
+      <div class="card mt-4">
+          <div class="card-body">
+            <p style="float: left; width: 11%;">
+              <a href="videos/edit/<%= video.id %>">
+                <img class="thumbnail-renderer fade-in" src="<%= video.video_thumbnail_image %>" width="160" height="90">
+              </a>
+            </p>
+            <div style="width: 82%; float:right;">
+              <h4 class="card-title"><%= video.video_title %></h4>
+              <h6 class="card-text"><%= video.video_description %></h6>
+              <div>
+                <a href="videos/edit/<%= video.id %>" class="btn btn-sm btn-outline-success">Edit</a>
+                <a href="<%= video.video_url %>" target="_blank" class="btn btn-sm btn-outline-warning">Go to Video</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>

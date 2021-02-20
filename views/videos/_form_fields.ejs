@@ -1,0 +1,55 @@
+<div class="form-group">
+  <label class="control_label" for="video_title">Video Title</label>
+  <input required value="<%= video.video_title %>" type="text" name="video_title" id="video_title" class="form-control">
+</div>
+<div class="form-group">
+  <label class="control_label" for="video_url">Video URL</label>
+  <input required type="text" name="video_url" id="video_url" class="form-control" value="<%= video.video_url %>" >
+</div>
+<div class="form-group">
+  <label class="control_label" for="video_description_full">Video Description</label>
+  <textarea name="video_description_full" id="video_description_full" class="form-control">
+    <% if (video.video_description_full != '') { %>
+      <%= video.video_description_full %>
+    <% } else { %>
+      <%= video.video_description %>
+    <% } %>
+    </textarea>
+</div>
+<div class="form-group">
+  <label class="control_label" for="views_count">Video View Count</label>
+  	<input type="text" name="views_count" id="views_count" class="form-control" value="<%= video.views_count %>" >
+</div>
+<div class="form-group">
+  <label class="control_label" for="likes_count">Video Likes Count</label>
+  <input type="text" name="likes_count" id="likes_count" class="form-control" value="<%= video.likes_count %>" >
+</div>
+<div class="form-group">
+  <label class="control_label" for="dislikes_count">Video Dislikes Count</label>
+  <input type="text" name="dislikes_count" id="dislikes_count" class="form-control" value="<%= video.dislikes_count %>" >
+</div>
+
+<hr class="solid">
+<div class="mb-3" style="width:100%;height:auto;padding:1%;padding-left: 0%">
+    <div>
+      <img class="thumbnail-renderer fade-in" src="<%= video.channel_thumbnail %>" width="48" height="48" style="float:left;">
+    </div>  
+  <div style='margin-left:60px;'>
+    <h3>Channel Info</h3>
+  </div>
+</div>
+<div class="form-group">
+  <label class="control_label" for="channel_title">Channel Title</label>
+  <input value="<%= video.channel_title %>" type="text" name="channel_title" id="channel_title" class="form-control">
+</div>
+<div class="form-group">
+  <label class="control_label" for="channel_description">Channel Description</label>
+  <textarea name="channel_description" id="channel_description" class="form-control"><%= video.channel_description %></textarea>
+</div>
+<div class="form-group">
+  <label class="control_label" for="channel_subscribers">Channel Subscribers Count</label>
+  <input type="text" name="channel_subscribers" id="channel_subscribers" class="form-control" value="<%= video.channel_subscribers %>" >
+</div>
+
+<a href="/" class="btn btn-secondary">Cancel</a>
+<button type="submit" class="btn btn-primary">Save</button>
